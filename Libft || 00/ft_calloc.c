@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 16:39:12 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/07 17:10:22 by noel             ###   ########.fr       */
+/*   Created: 2023/10/07 14:39:38 by noel              #+#    #+#             */
+/*   Updated: 2023/10/07 16:26:08 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 
-int ft_isalpha(int c)
+
+void *ft_calloc (size_t nmemb, size_t size)
 {
-	if (c >= 65 && c <= 90 || c >= 97 && c <= 122)
-		return 1;
-	else 
-		return 0;
+    if (nmemb == 0 || size == 0)
+        return (malloc(0));
+    if ((nmemb * size) > __INT_MAX__)
+    {
+        return 0;
+    }
+    return (malloc(nmemb * size));
 }
 
 int main()
 {
-	int test = 'a';
-	printf("%d", ft_isalpha(test));
+    size_t nmemb = 1234567890;
+    size_t size = 12345;
+    ft_calloc(nmemb, size);
 }
+
+ananas

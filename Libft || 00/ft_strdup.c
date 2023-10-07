@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 16:39:12 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/07 17:10:22 by noel             ###   ########.fr       */
+/*   Created: 2023/10/07 16:30:04 by noel              #+#    #+#             */
+/*   Updated: 2023/10/07 17:08:47 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-int ft_isalpha(int c)
+char *strdup(const char *s)
 {
-	if (c >= 65 && c <= 90 || c >= 97 && c <= 122)
-		return 1;
-	else 
-		return 0;
+    char *dup;
+    int i = 0;
+
+    dup = malloc(sizeof(s));
+    if (!dup)
+        return 0;
+    while (s[i] != 0)
+    {
+        dup[i] = s[i];
+        i++; 
+    }
+    return dup;
 }
 
-int main()
-{
-	int test = 'a';
-	printf("%d", ft_isalpha(test));
-}
+ananas;

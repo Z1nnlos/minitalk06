@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:31:34 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/06 13:56:51 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/08 12:03:50 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ size_t ft_strlen(const char *s)
     return i;
 }
 
-int main()
-{
-    const char *a = "Hello";
-    printf("%zu", ft_strlen(a));
-}
+// int main()
+// {
+//     const char *a = "Hello";
+//     printf("%zu", ft_strlen(a));
+// }

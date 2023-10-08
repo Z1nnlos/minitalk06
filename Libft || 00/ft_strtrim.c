@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 12:48:38 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/08 12:14:37 by noel             ###   ########.fr       */
+/*   Created: 2023/10/08 13:50:10 by noel              #+#    #+#             */
+/*   Updated: 2023/10/08 18:34:02 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+#include <stdlib.h>
 
-void *ft_memset(void *s, int c, size_t len)
+char *ft_strtrim(char const *s1, char const *set)
 {
-    unsigned char *a = s;
-    unsigned char *b = (unsigned char*) &c;
+    char *result;
+    int i1 = 0;
+    int i2 = ft_strlen(s1) -1;
 
-    size_t i = 0;
-    while (i < len)
-    {
-        a[i] = *b;
-        i++;
-    }
-    return s;
+    while (s1[i] != 0 && ft_str)
 }
-
-// int main()
-// {
-//     char *s = "hey";
-//     int c = 'A';
-//     size_t len = 4;
-//     memset(s, c, len);
-// }
+int main()
+{
+    const char *s1 = "abc Hello there abc";
+    const char *set = "abc";
+    printf("%s", ft_strtrim(s1, set));
+}

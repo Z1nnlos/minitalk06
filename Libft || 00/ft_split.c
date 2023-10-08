@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 12:48:38 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/08 12:14:37 by noel             ###   ########.fr       */
+/*   Created: 2023/10/08 14:01:06 by noel              #+#    #+#             */
+/*   Updated: 2023/10/08 16:47:17 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+#include <stdlib.h>
 
-void *ft_memset(void *s, int c, size_t len)
+char **ft_split(char const *s, char c)
 {
-    unsigned char *a = s;
-    unsigned char *b = (unsigned char*) &c;
+    char **result;
+    int i = 0;
+    int ccounter = 0;
 
-    size_t i = 0;
-    while (i < len)
+    while (s[i] != 0 && s[i] == c)
     {
-        a[i] = *b;
+        ccounter++;
         i++;
     }
-    return s;
-}
 
-// int main()
-// {
-//     char *s = "hey";
-//     int c = 'A';
-//     size_t len = 4;
-//     memset(s, c, len);
-// }
+    int size = ft_strlen(s) - ccounter + 1;
+    result = (char **)malloc(size);
+
+}

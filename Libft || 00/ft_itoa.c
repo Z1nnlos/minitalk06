@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 18:36:17 by noel              #+#    #+#             */
-/*   Updated: 2023/10/08 18:53:44 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/08 19:21:11 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,21 @@ char *ft_itoa(int n)
 {
     int temp = 0;
     int i = 0;
+    int Vorzeichen = 1;
+    char *result;
     
-    while (n > 0)
-    {
-        temp *= 10;
-        n /= 10;
+    result = (char *)malloc(sizeof(n));
+    if (!result)
+        return NULL;
 
+    while (n > INT_MIN && n < INT_MAX)
+    {
+        temp = n / 10;
+        result[i] = temp + '0';
+        i++; 
     }
+    result = '\0';
+    return result;
 }
 
 #include <stdio.h>
@@ -33,8 +41,7 @@ int main() {
     char *str = ft_itoa(num);
     if (str) {
         printf("Der Integer %d als String: %s\n", num, str);
-        free(str); // Speicher freigeben, wenn er nicht mehr benötigt wird
-    } else {
+        free(str); // Speicher freigeben, wenn er nicht mehr benötigt wird } else {
         printf("Fehler bei der Speicherallokation.\n");
     }
 

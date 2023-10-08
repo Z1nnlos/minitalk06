@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:50:10 by noel              #+#    #+#             */
-/*   Updated: 2023/10/08 18:34:02 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/08 19:23:46 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char *ft_strtrim(char const *s1, char const *set)
 
     while (s1[i] != 0 && ft_str)
 }
+
 int main()
 {
     const char *s1 = "abc Hello there abc";

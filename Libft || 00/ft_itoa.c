@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 18:36:17 by noel              #+#    #+#             */
-/*   Updated: 2023/10/08 19:21:11 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/08 20:33:39 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,80 @@
 
 char *ft_itoa(int n)
 {
-    int temp = 0;
-    int i = 0;
-    int Vorzeichen = 1;
     char *result;
+    int Vorzeichen = 1;
+    int temp = n;
+    int i = 0;
+
+    if (n == 0)
+        return 0;
     
-    result = (char *)malloc(sizeof(n));
+    if (n < 0)
+    {
+        Vorzeichen *= -1;
+        n = -n;
+    }
+
+    while (temp > 0)
+    {
+        temp /= 10;
+        i++;    
+    }
+   
+    result = (char *)malloc(i + 2);
     if (!result)
         return NULL;
-
-    while (n > INT_MIN && n < INT_MAX)
+    
+    if (Vorzeichen == -1)
     {
-        temp = n / 10;
-        result[i] = temp + '0';
-        i++; 
+        result[0] = '-';
     }
-    result = '\0';
-    return result;
+    
+    result[i + 1] = '\0';
+    temp = n;
+    while (n > 0)
+    {
+        temp = n % 10;
+        result[i] = temp + '0';
+        i--;
+        n /= 10;
+    }
+    return result;    
 }
 
-#include <stdio.h>
 
-int main() {
-    int num = -12345;
-    char *str = ft_itoa(num);
-    if (str) {
-        printf("Der Integer %d als String: %s\n", num, str);
-        free(str); // Speicher freigeben, wenn er nicht mehr benötigt wird } else {
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int positiveNum1 = 123;
+    int positiveNum2 = 4567;
+    int negativeNum1 = -89;
+    int negativeNum2 = -12345;
+
+    char *str1 = ft_itoa(positiveNum1);
+    char *str2 = ft_itoa(positiveNum2);
+    char *str3 = ft_itoa(negativeNum1);
+    char *str4 = ft_itoa(negativeNum2);
+
+    if (str1 && str2 && str3 && str4)
+    {
+        printf("Positive Zahl 1: %s\n", str1);
+        printf("Positive Zahl 2: %s\n", str2);
+        printf("Negative Zahl 1: %s\n", str3);
+        printf("Negative Zahl 2: %s\n", str4);
+
+        free(str1);
+        free(str2);
+        free(str3);
+        free(str4);
+    }
+    else
+    {
         printf("Fehler bei der Speicherallokation.\n");
     }
 
     return 0;
 }
+

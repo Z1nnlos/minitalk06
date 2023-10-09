@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:50:10 by noel              #+#    #+#             */
-/*   Updated: 2023/10/09 09:56:17 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/09 11:31:17 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,5 @@ int main()
 {
     const char *s1 = "abc Hello there abc";
     const char *set = "abc";
-    ft_strtrim(s1, set);
+    printf("%s", ft_strtrim(s1, set));
 }

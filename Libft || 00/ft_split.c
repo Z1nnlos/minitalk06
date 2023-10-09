@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 14:01:06 by noel              #+#    #+#             */
-/*   Updated: 2023/10/09 10:22:26 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/09 11:27:44 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char **ft_split(char const *s, char c)
     int chari = 0; 
     int ssize = ft_strlen(s);
     int ccount = 0;
-    int sizeofal = ssize - ccount;
+    int sizeofal;
 
     while (s[i] != 0)
     {
@@ -29,6 +29,7 @@ char **ft_split(char const *s, char c)
             ccount++;
         i++; 
     }
+    sizeofal = ssize - ccount + 1;
 
     result = (char **)malloc(sizeofal);
     if (!result)
@@ -46,15 +47,37 @@ char **ft_split(char const *s, char c)
         if (s[i] == c)
         {
             i++;
+            result[stri][chari] = '\0';
             stri++;
+            chari = 0;
         }
     }
-    
+    return  result;
 }
 
 int main()
 {
-    const char **s = ;
-    char c = 32;
-    printf("%s", ft_split(s, c));
+    const char *s = "hello there how  are you.";
+    char c = ' ';
+    char **result = ft_split(s, c);
+
+    if (!result) {
+        printf("Fehler bei der Aufteilung des Strings.\n");
+        return 1;
+    }
+
+    // Ausgabe der aufgeteilten Zeichenketten
+    int i = 0;
+    while (result[i] != NULL) {
+        printf("%s\n", result[i]);
+        i++;
+    }
+
+    // Speicher freigeben
+    for (int j = 0; result[j] != NULL; j++) {
+        free(result[j]);
+    }
+    free(result);
+
+    return 0;
 }

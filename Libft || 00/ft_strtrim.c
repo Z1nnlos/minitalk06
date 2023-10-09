@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:50:10 by noel              #+#    #+#             */
-/*   Updated: 2023/10/09 09:12:49 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/09 09:56:17 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,51 @@
 char *ft_strtrim(char const *s1, char const *set)
 {
     char *result;
-    int i1 = 0;
+    int i = 0;
     int s1size = ft_strlen(s1) -1;
     int setsize = ft_strlen(set) - 1;
     int setcounter = 0;
+    int sizeofal = 0;
     
     //Herausfinden, ob set vorkommt und wenn ja vorne und hinten?
-    while (s1[i1] != 0)
+    //Irgendwie herausfinden, ob es vorne oder hinten ist oder beides!
+    while (s1[i] != 0)
     {
-        if (s1[i1] == set[0] && ft_strncmp(s1, set, setsize) == 0)
-        {
-            setcounter++;
-        }
-        i1++;
+        if (s1[i] == set[0] && ft_strncmp(s1, set, setsize) == 0 )
+            setcounter += 1;
+        i++;
     }
     printf("%d", setcounter);
     
+    //Genuegend Speicherplatz reservieren
+    sizeofal = s1size - setsize * setcounter + 1;
+    result = (char *)malloc(sizeofal); 
+    if(!result)
+        return NULL;
+
+    //Jetzt wird getrimmt
+    while (s1[i] != 0)
+    {
+        if (setcounter == 0)
+        {
+            result[i] = s1[i];
+            i++;
+        }
+        if (setcounter == 1)
+        {
+            result[i] = s1[i + setsize];
+            i++;
+        }
+        if(setcounter == 2)
+        {
+            result [i] = s1[i + setsize];
+            i++;
+            if (s1[i + setsize] == s1[s1size - setsize])
+                break;
+        }
+    }
+    result[i] = '\0';
+    return result;
 }
 
 int main()

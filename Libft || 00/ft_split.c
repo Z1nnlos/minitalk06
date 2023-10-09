@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 14:01:06 by noel              #+#    #+#             */
-/*   Updated: 2023/10/09 11:27:44 by nsabia           ###   ########.fr       */
+/*   Created: 2023/10/09 17:35:21 by nsabia            #+#    #+#             */
+/*   Updated: 2023/10/09 18:27:58 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,39 @@ char **ft_split(char const *s, char c)
     char **result;
     int i = 0;
     int stri = 0;
-    int chari = 0; 
+    int chari = 0;
     int ssize = ft_strlen(s);
     int ccount = 0;
     int sizeofal;
 
-    while (s[i] != 0)
+    //Zaehlt c um es fuer malloc zu subtrahieren
+    while (s[i] != '\0')
     {
-       if(s[i] == c)
+        if (s[i] == c)
             ccount++;
-        i++; 
+        i++;
     }
+    
+    //mallo, welches fur alles insgesamt reserviert
     sizeofal = ssize - ccount + 1;
-
-    result = (char **)malloc(sizeofal);
+    result = (char **)malloc(sizeofal * sizeof(char *));
     if (!result)
         return NULL;
 
+    //malloc was nochmal spezifisch fuer jeden string allociert
     i = 0;
-    while (s[i] != 0)
+    while (i < sizeofal)
+    {
+        result[i] = (char *)malloc((ssize + 1) * sizeof(char));
+        if (!result[i])
+            return NULL;
+        result[i][0] = '\0'; 
+        i++;
+    }
+
+    //hier wird alles was kein char c ist kopiert in result
+    i = 0;
+    while (s[i] != '\0')
     {
         if (s[i] != c)
         {
@@ -44,40 +58,44 @@ char **ft_split(char const *s, char c)
             i++;
             chari++;
         }
-        if (s[i] == c)
+        if (s[i] == c || s[i] == '\0')
         {
-            i++;
             result[stri][chari] = '\0';
             stri++;
             chari = 0;
+            while (s[i] == c)
+                i++;
         }
     }
-    return  result;
+    result[stri] = NULL;
+    return result;
 }
 
-int main()
+
+
+#include <stdio.h>
+#include "libft.h"
+
+int main(void)
 {
-    const char *s = "hello there how  are you.";
-    char c = ' ';
-    char **result = ft_split(s, c);
+    char *input = "Hello there I hope u folks had a nice day";
+    char **result = ft_split(input, ' ');
 
-    if (!result) {
-        printf("Fehler bei der Aufteilung des Strings.\n");
-        return 1;
+    if (result)
+    {
+        int i = 0;
+        while (result[i])
+        {
+            printf("Token %d: %s\n", i, result[i]);
+            free(result[i]); // Speicherplatz für die einzelnen Zeichenfolgen freigeben
+            i++;
+        }
+        free(result); // Speicherplatz für das Ergebnisarray freigeben
     }
-
-    // Ausgabe der aufgeteilten Zeichenketten
-    int i = 0;
-    while (result[i] != NULL) {
-        printf("%s\n", result[i]);
-        i++;
+    else
+    {
+        printf("Speicherreservierung fehlgeschlagen.\n");
     }
-
-    // Speicher freigeben
-    for (int j = 0; result[j] != NULL; j++) {
-        free(result[j]);
-    }
-    free(result);
 
     return 0;
 }

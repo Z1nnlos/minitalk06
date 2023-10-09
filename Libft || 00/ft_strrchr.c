@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:03:22 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/05 12:26:00 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/09 15:07:20 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ char *ft_strrchr(const char *s, int c)
     return NULL;	
 }
 
-int main()
-{
-    const char *a = "Hello there how are u";
-    int c = 'o';
-	printf("%s", ft_strrchr(a, c));
-}
+// int main()
+// {
+//     const char *a = "Hello there how are u";
+//     int c = 'o';
+// 	printf("%s", ft_strrchr(a, c));
+// }

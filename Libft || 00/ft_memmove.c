@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:08:34 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/06 19:04:08 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/09 14:04:11 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void *memmove(void *dst, const void *src, size_t len)
         return dst;
     if (a < b && a + len > b)
     {
-        
+                
     }
-    ananas
-    hello;
+    ananans
+    
 }

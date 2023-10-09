@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   FT_TRIMONECHAR.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 14:15:30 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/09 15:32:34 by nsabia           ###   ########.fr       */
+/*   Created: 2023/10/09 15:01:51 by nsabia            #+#    #+#             */
+/*   Updated: 2023/10/09 15:01:53 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,46 +23,9 @@ char *ft_strtrim(char const *s1, char const *set)
     int s1size = ft_strlen(s1);
     int setsize = ft_strlen(set);
     int set_occurrence = 0;
-    int start_count = 0;
-    int end_count = 0;
     int sizeofal;
 
-    //Festlegen wie viel vorne und hinten getrimmt werden soll
-    while (s1[i] != 0)
-    {
-        m = 0;
-        while (set[m] != 0)
-        {
-            if (s1[i + 1] != set[m])
-                break;
-            else 
-                start_count++;
-            m++;
-        }
-        if (s1[i + 1] != set[m])
-            break;
-        i++; 
-    }
-    
-    while (i >= 0)
-    {
-        m = 0;
-        while (set[m] != 0)
-        {
-            if (s1[i] != set[m])
-                break;
-            else 
-                end_count++;
-            m++;
-        }
-        if (s1[i] != set[m])
-            break;
-        i--; 
-    }
-
     //Feststellen wie viele bytes weggetrimmt werden fuer malloc
-    i = 0;
-    m = 0;
     while (s1[i] != 0)
     {
         m = 0;
@@ -83,13 +46,12 @@ char *ft_strtrim(char const *s1, char const *set)
     
     //Kopieren in neuen String result;
     i = 0;
-    m = 0;
     while(s1[i] != 0)
     {
         m = 0;
         while (set[m] != 0)
         {
-            if (s1[i] != set[m] && i > start_count && i < end_count)
+            if (s1[i] != set[m])
             {
                 result[result_index] = s1[i];
                 result_index++;

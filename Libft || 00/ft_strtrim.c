@@ -6,31 +6,32 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:50:10 by noel              #+#    #+#             */
-/*   Updated: 2023/10/09 11:31:17 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/09 12:47:15 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 char *ft_strtrim(char const *s1, char const *set)
 {
     char *result;
     int i = 0;
-    int s1size = ft_strlen(s1) -1;
-    int setsize = ft_strlen(set) - 1;
+    int s1size = ft_strlen(s1);
+    int setsize = ft_strlen(set);
     int setcounter = 0;
     int sizeofal = 0;
+    int result_index = 0; 
     
-    //Herausfinden, ob set vorkommt und wenn ja vorne und hinten?
-    //Irgendwie herausfinden, ob es vorne oder hinten ist oder beides!
+
     while (s1[i] != 0)
     {
-        if (s1[i] == set[0] && ft_strncmp(s1, set, setsize) == 0 )
+        if ((s1[0] == set[0] || s1[s1size - setsize] == set[0])&& ft_strncmp(&s1[i], set, setsize) == 0)
             setcounter += 1;
         i++;
     }
-    printf("%d", setcounter);
+    printf("%d\n", setcounter);
     
     //Genuegend Speicherplatz reservieren
     sizeofal = s1size - setsize * setcounter + 1;
@@ -39,33 +40,38 @@ char *ft_strtrim(char const *s1, char const *set)
         return NULL;
 
     //Jetzt wird getrimmt
-    while (s1[i] != 0)
+    i = 0; 
+    while (s1[i] != '\0')
     {
-        if (setcounter == 0)
+        if ((i == 0 || i == s1size - setsize) && ft_strncmp(&s1[i], set, setsize) == 0)
         {
-            result[i] = s1[i];
-            i++;
+            i += setsize; 
+            setcounter--; 
         }
-        if (setcounter == 1)
+        else
         {
-            result[i] = s1[i + setsize];
+            result[result_index] = s1[i];
             i++;
-        }
-        if(setcounter == 2)
-        {
-            result [i] = s1[i + setsize];
-            i++;
-            if (s1[i + setsize] == s1[s1size - setsize])
-                break;
+            result_index++;
         }
     }
-    result[i] = '\0';
+    result[result_index] = '\0'; 
     return result;
 }
 
-int main()
-{
-    const char *s1 = "abc Hello there abc";
-    const char *set = "abc";
-    printf("%s", ft_strtrim(s1, set));
+int main() {
+    const char *input = " abc Hallo, Welt! abc ";
+    const char *set = " ";
+    
+    char *trimmed = ft_strtrim(input, set);
+    
+    if (trimmed) {
+        printf("Eingabe: \"%s\"\n", input);
+        printf("Ausgabe: \"%s\"\n", trimmed);
+        free(trimmed); // Speicher freigeben, wenn nicht mehr benötigt
+    } else {
+        printf("Speicherplatz konnte nicht zugewiesen werden.\n");
+    }
+    
+    return 0;
 }

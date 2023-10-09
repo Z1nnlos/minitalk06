@@ -6,12 +6,14 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:34:25 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/09 11:48:57 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/09 12:00:44 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifdef LIBFT_H
+#ifndef LIBFT_H
 #define LIBFT_H
+
+#include <stdlib.h>
 
 int ft_atoi(const char *str);
 void bzero(void *s, size_t n);

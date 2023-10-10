@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 09:57:04 by noel              #+#    #+#             */
-/*   Updated: 2023/10/10 12:34:49 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/10 20:41:10 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,3 @@ void ft_striteri(char *s, void (*f)(unsigned int, char *))
         i++;
     }
 }
-
-// #include <ctype.h>
-
-// void convertToUpper(unsigned int index, char *c)
-// {
-//     if (*c >= 'a' && *c <= 'g') {
-//         *c = toupper(*c);
-//     }
-// }
-
-
-// #include <stdio.h>
-
-// int main()
-// {
-//     char s[] = "Hallo, Welt!";
-    
-//     // Aufruf von ft_striteri mit der Funktion convertToUpper
-//     ft_striteri(s, convertToUpper);
-    
-//     // Zeigen Sie die umgewandelte Zeichenkette an
-//     printf("%s\n", s);
-    
-//     return 0;
-// }

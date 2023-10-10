@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 13:04:41 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/10 18:18:05 by nsabia           ###   ########.fr       */
+/*   Created: 2023/10/10 18:41:10 by nsabia            #+#    #+#             */
+/*   Updated: 2023/10/10 18:46:38 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-void *memcpy(void *restrict dst, const void *restrict scr, size_t n)
+void ft_putstr_fd(char *s, int fd)
 {
-    char *a = dst;
-    const char *b = scr;
-    size_t i = 0;
+    int i = 0;
 
-    while(i < n)
+    while (s[i] != 0)
     {
-        a[i] = b[i];
+        write (fd, &s[i], sizeof(char));
         i++;
     }
-    return dst;
 }

@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:24:32 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/06 14:06:24 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/10 18:17:45 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int memcmp(const void *s1, const void *s2, size_t n)
 {
     const unsigned char *a = s1;
     const unsigned char *b = s2;
-    int i = 0;
+    size_t i = 0;
     int diff = 0;
 
     if (*a == 0)

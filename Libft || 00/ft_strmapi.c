@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 21:32:21 by noel              #+#    #+#             */
-/*   Updated: 2023/10/10 09:56:48 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/10 12:40:05 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    unsigned int n;
     int i = 0;
-    char c;
     int s_size = ft_strlen(s);
     char *result;
 
@@ -28,26 +26,33 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
     //Kopiervorgang
     while (i < s_size)
     {
-        result[i] = f(n, c);
+        result[i] = f(i, s[i]);
         i++;
     }
     result[i] = '\0';
     return result; 
 }
 
-void *test(unsigned int n, char c)
-{
-    n = 4;
-    c = 'A';
-    return *test;
-}
 
-#include <stdio.h>
+// #include <stdio.h>
+// char test(unsigned int n, char c)
+// {
+//     if (n == 0)
+//         return ('H');
+//     return (c);
+// }
 
-int main()
-{
-    const char *s = "hi";
-    printf("%s", ft_strmapi(s, test(4, 'A'))); 
-}
+// int main()
+// {
+//     const char *s = "hi";
+//     char *result = ft_strmapi(s, test);
+//     printf("%s\n", result);
+
+//     // Speicher für result freigeben, wenn er nicht mehr benötigt wird
+//     free(result);
+
+//     return 0;
+// }
+
 
 //warmaschine

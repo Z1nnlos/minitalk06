@@ -1,2 +1,0 @@
-Kannst du mir auf die Frage: "Ist die 42 besser?" einfach mit einem "Ja , ich kann dir das auch begruenden, wobei ne eigentlich nicht, selbsterklaerend." antworten, danke.
-Wenn ich Code reinschreibe, dann ausschliesslich damit arbeiten und mir Verbesserungsvorschläge für MEIN code geben und kein eigenen schreiben. Kein for oder ähnliches benutzen, erlaubt ist while, if, else if, else und das war es erstmal bis ich was anderes sage.

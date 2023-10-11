@@ -8,27 +8,29 @@
 
 void ft_putnbr_fd(int n, int fd)
 {
-    char c;
-    int temp = 0;
+    int i = 0;
+    int temp[12];
+    //edgecasehandling
     if (n == -2147483648)
         write(fd, "-2147483648", 11);
+    //negative n handeln
     if (n < 0)
     {
         write(fd, "-", 1);
         n *= -1;
     }
+    //Zahlen zweimal kopiert, damit sie in der richtigen Reihenfolge sind
     while (n > 0)
     {
-        temp = n % 10;
+        temp[i] = n % 10 + '0';
         n /= 10;
-        c = '0' + temp; // Konvertiere die Ziffer in ein Zeichen
-        write(fd, &c, 1); // Schreibe das Zeichen in den Dateideskriptor
+        i++;
+    }
+    while (i > 0)
+    {
+        i--;
+        write(fd, &temp[i], 1);
     }
 }
 
-int main()
-{
-    int num = 123;
-    ft_putnbr_fd(num, STDOUT_FILENO); // Gib die Zahl auf dem Standardausgabedateideskriptor aus
-    return 0;
-}
+

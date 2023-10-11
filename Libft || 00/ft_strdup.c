@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 16:30:04 by noel              #+#    #+#             */
-/*   Updated: 2023/10/07 17:08:47 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/11 17:20:00 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char *strdup(const char *s)
     char *dup;
     int i = 0;
 
-    dup = malloc(sizeof(s));
+    dup = (char *)malloc(sizeof(s));
     if (!dup)
         return 0;
     while (s[i] != 0)
@@ -28,5 +28,3 @@ char *strdup(const char *s)
     }
     return dup;
 }
-
-ananas;

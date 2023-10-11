@@ -6,20 +6,22 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:17:23 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/06 12:23:32 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/11 18:11:51 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    unsigned char *a = s;
-    size_t m = 0;
+	unsigned char	*a;
+	size_t			m;
 
-    while (m < n)
-    {
-        *a = 0;
-        m++;
-    }
+	a = s;
+	m = 0;
+	while (m < n)
+	{
+		*a = 0;
+		m++;
+	}
 }

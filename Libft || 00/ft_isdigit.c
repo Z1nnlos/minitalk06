@@ -6,21 +6,14 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:42:37 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/05 12:25:10 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/11 18:18:48 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    if (c >= 48 && c <= 57)
-        return 1;
-    else
-        return 0;
-}
-
-#include <stdio.h>
-int main()
-{
-    int c = 'a';
-    printf("%d", ft_isdigit(c));
+	if (c >= 48 && c <= 57)
+		return (1);
+	else
+		return (0);
 }

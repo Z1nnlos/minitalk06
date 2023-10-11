@@ -6,21 +6,14 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:47:34 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/10 17:47:38 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/11 18:15:41 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-    if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c >= 48 && c <= 57))
-        return 1; 
-    else 
-        return 0;
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c >= 48 && c <= 57))
+		return (1);
+	else
+		return (0);
 }
-
-// #include <stdio.h>
-// int main()
-// {
-//     int c = 'H';
-//     printf("%d\n", ft_isalnum(c));
-// }

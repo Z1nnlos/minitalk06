@@ -6,22 +6,14 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:51:16 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/05 11:59:17 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/11 18:18:00 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if (c >= 0 && c <= 127)
-        return 1;
-    else 
-        return 0;
-}
-
-#include <stdio.h>
-
-int main()
-{
-    int c = '6';
-    printf("%d", ft_isascii(c));
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }

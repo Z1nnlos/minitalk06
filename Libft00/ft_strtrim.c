@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:15:30 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/12 18:18:47 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/12 18:39:10 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ void	finished_str(const char *s1, int set_c_start, int s1_size, char *result)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*result;
-	int		found;
 	int		set_c_start;
 	int		s1_size;
 	int		sizeofal;
@@ -103,7 +102,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	set_c_start = 0;
 	s1_size = ft_strlen(s1);
 	sizeofal = s1_size - set_c_start - s1_size;
-	set_c_start = start_c_counter(s1, set, found, set_c_start);
+	set_c_start = start_c_counter(s1, set, 0, set_c_start);
 	s1_size = end_c_counter(s1, set, s1_size);
 	result = (char *)malloc(sizeofal);
 	if (!result)

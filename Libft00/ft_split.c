@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:35:21 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/12 16:34:39 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/12 18:38:19 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	**ft_split(char const *s, char c)
 	int		sizeofal;
 
 	i = 0;
-	stri = stri_count(s, c, i, stri);
+	stri = stri_count(s, c, i, 0);
 	ssize = ft_strlen(s);
 	sizeofal = ssize - stri + 1;
 	result = (char **)malloc(sizeofal * sizeof(char *));

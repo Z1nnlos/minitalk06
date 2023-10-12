@@ -6,24 +6,16 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:46:57 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/11 17:54:18 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/12 13:05:24 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if (!(c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-        return c;
-    if (c >= 97 && c <= 122)
-        return (c + 32);
-    else
-        return c;
+	if (!(c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (c);
+	if (c >= 97 && c <= 122)
+		return (c + 32);
+	else
+		return (c);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-//     int c = 'a';
-//     printf("%d", ft_toupper(c));
-// }

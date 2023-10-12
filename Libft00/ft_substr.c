@@ -6,40 +6,31 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:11:07 by noel              #+#    #+#             */
-/*   Updated: 2023/10/11 17:53:57 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/12 13:04:25 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    char *sub;
-    size_t i = 0;
-    int size;
+	char	*sub;
+	size_t	i;
+	int		size;
 
-    if (start >= len || s[i] == 0)
-        return (0);
-    size = len - start + 1;
-    sub = (char *)malloc(size);
-    if (!sub)
-        return 0;
-    while (s[i] != 0 && i < len)
-    {
-        sub[i] = s[start + i];
-        i++;
-    }
-    sub[i] = '\0';
-    return sub;
-}
-
-
-int main()
-{
-    const char *str = "abcd";
-    char *sub = ft_substr(str, 1, 2); // Speicherplatz in 'sub' speichern
-    printf("%s\n", sub);
-    free(sub);
-    return 0;
+	i = 0;
+	if (start >= len || s[i] == 0)
+		return (0);
+	size = len - start + 1;
+	sub = (char *)malloc(size);
+	if (!sub)
+		return (0);
+	while (s[i] != 0 && i < len)
+	{
+		sub[i] = s[start + i];
+		i++;
+	}
+	sub[i] = '\0';
+	return (sub);
 }

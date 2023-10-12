@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:15:30 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/11 13:28:42 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/12 12:59:03 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,20 +83,4 @@ char *ft_strtrim(char const *s1, char const *set)
     }
     result[m] = '\0';
     return result;
-}
-
-int main() {
-    const char *input = "abc  Hello, World!   abc";
-    const char *set = "abc";
-    char *trimmed = ft_strtrim(input, set);
-
-    if (trimmed) {
-        printf("Original: \"%s\"\n", input);
-        printf("Trimmed:  \"%s\"\n", trimmed);
-        free(trimmed);
-    } else {
-        printf("Speicherzuweisung fehlgeschlagen.\n");
-    }
-
-    return 0;
 }

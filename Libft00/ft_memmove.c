@@ -6,25 +6,17 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:08:34 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/12 12:06:37 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/12 14:35:22 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	copy(char *source, char *destination, size_t len, int k)
 {
-	char	*source;
-	char	*destination;
-	int		i;
-	int		k;
+	int	i;
 
-	source = (char *)dst;
-	destination = (char *)src;
 	i = 0;
-	k = len;
-	if (source[0] == '\0' || destination[0] == '\0')
-		return (NULL);
 	if (source < destination)
 	{
 		source += len;
@@ -43,5 +35,19 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			i++;
 		}
 	}
+}
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	char	*source;
+	char	*destination;
+	int		k;
+
+	source = (char *)dst;
+	destination = (char *)src;
+	k = len;
+	if (source[0] == '\0' || destination[0] == '\0')
+		return (NULL);
+	copy(source, destination, len, k);
 	return (dst);
 }

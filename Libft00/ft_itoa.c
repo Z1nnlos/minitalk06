@@ -6,16 +6,16 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 18:36:17 by noel              #+#    #+#             */
-/*   Updated: 2023/10/12 14:40:42 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/12 16:26:52 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-void	edgecase(int n)
+char	*edgecase(int n)
 {
-	char	*result;
+	char	result[12];
 
 	if (n == -2147483648)
 	{
@@ -31,8 +31,8 @@ void	edgecase(int n)
 		result[9] = '4';
 		result[10] = '8';
 		result[11] = '\0';
-		return (result);
 	}
+	return (result);
 }
 
 void	fillarray(int n, int result_index, char *result, char temp[12])

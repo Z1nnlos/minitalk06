@@ -6,14 +6,14 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:35:21 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/12 15:00:54 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/12 16:34:39 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void new_strring(const char *s, char c, char **result, int stri)
+void	new_strring(const char *s, char c, char **result, int stri)
 {
 	int	i;
 	int	chari;
@@ -39,6 +39,16 @@ void new_strring(const char *s, char c, char **result, int stri)
 	}
 }
 
+int	stri_count(char const *s, char c, int i, int stri)
+{
+	while (s[i] != '\0')
+	{
+		if (s[i++] == c)
+			stri++;
+	}
+	return (stri);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
@@ -48,14 +58,8 @@ char	**ft_split(char const *s, char c)
 	int		sizeofal;
 
 	i = 0;
-	stri = 0;
+	stri = stri_count(s, c, i, stri);
 	ssize = ft_strlen(s);
-	while (s[i] != '\0')
-	{
-		if (s[i] == c)
-			stri++;
-		i++;
-	}
 	sizeofal = ssize - stri + 1;
 	result = (char **)malloc(sizeofal * sizeof(char *));
 	if (!result)
@@ -64,12 +68,12 @@ char	**ft_split(char const *s, char c)
 	stri = 0;
 	while (i < sizeofal)
 	{
-		result[i] = (char *)malloc((ssize + 1) * sizeof(char));
+		result[i++] = (char *)malloc((ssize + 1) * sizeof(char));
 		if (!result[i])
 			return (NULL);
-		result[i][0] = '\0';
-		i++;
+		result[i++][0] = '\0';
 	}
+	new_strring(s, c, result, stri);
 	result[stri] = NULL;
 	return (result);
 }

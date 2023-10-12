@@ -6,7 +6,7 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:48:38 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/08 12:14:37 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/12 09:20:14 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,17 @@
 
 void *ft_memset(void *s, int c, size_t len)
 {
-    unsigned char *a = s;
-    unsigned char *b = (unsigned char*) &c;
+	unsigned char *a;
+	unsigned char *b;
+	size_t			i;
 
-    size_t i = 0;
-    while (i < len)
-    {
-        a[i] = *b;
-        i++;
-    }
-    return s;
+	a = s;
+	b = (unsigned char *) &c;
+	i = 0;
+	while (i < len)
+	{
+		a[i] = *b;
+		i++;
+	}
+	return s;
 }
-
-// int main()
-// {
-//     char *s = "hey";
-//     int c = 'A';
-//     size_t len = 4;
-//     memset(s, c, len);
-// }

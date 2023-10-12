@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:35:21 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/09 18:27:58 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/12 09:37:24 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,33 +69,4 @@ char **ft_split(char const *s, char c)
     }
     result[stri] = NULL;
     return result;
-}
-
-
-
-#include <stdio.h>
-#include "libft.h"
-
-int main(void)
-{
-    char *input = "Hello there I hope u folks had a nice day";
-    char **result = ft_split(input, ' ');
-
-    if (result)
-    {
-        int i = 0;
-        while (result[i])
-        {
-            printf("Token %d: %s\n", i, result[i]);
-            free(result[i]); // Speicherplatz für die einzelnen Zeichenfolgen freigeben
-            i++;
-        }
-        free(result); // Speicherplatz für das Ergebnisarray freigeben
-    }
-    else
-    {
-        printf("Speicherreservierung fehlgeschlagen.\n");
-    }
-
-    return 0;
 }

@@ -1,12 +1,21 @@
-#include <stdio.h>
+#include "libft.h"
 
-void	*ft_memmove(void*dst, const void *src, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *source;
-	char *destination;
 	int	i;
-	int	k; 
+	int	s_size;
+	char *result;
 
-	source = (char *)dst;
-	destination = (char *)src;
+	i = 0;
+	s_size = ft_strlen(s);
+	result = (char*)malloc(s_size + 1);
+	if(!result)
+		return NULL;
+	while (i < s_size)
+	{
+		result[i] = f(i, s[i]);
+		i++;
+	}
+	result[i] = '\0';
+	return result;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:08:34 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/11 19:07:45 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/12 09:14:03 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 void *ft_memmove(void *dst, const void *src, size_t len)
 {
-	 char *source = (char *)dst;
-	 char *destination = (char *)src;
-	 int i = 0;
-	 int k = len;
+	char *source;
+	char *destination;
+	int	i;
+	int	k; 
 
-	 if (source[0] == '\0' || destination[0] == '\0')
-		  return NULL;
-	 if (source < destination)
+	source = (char *)dst;
+	destination = (char *)src;
+	i = 0;
+	k = len;
+	if (source[0] == '\0' || destination[0] == '\0')
+		return NULL;
+	if (source < destination)
 	 {
 		  source += len;
 		  destination += len;
@@ -31,7 +35,7 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 			   k--;
 		  }
 	 }
-	 else
+	else
 	 {
 		  while (len > 0)
 		  {

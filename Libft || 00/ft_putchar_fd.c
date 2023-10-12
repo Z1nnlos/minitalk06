@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 18:19:00 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/10 18:40:26 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/12 09:21:46 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void ft_putchar_fd(char c, int fd)
 {
-    write (fd, &c, sizeof(c));
+	write(fd, &c, sizeof(c));
 }

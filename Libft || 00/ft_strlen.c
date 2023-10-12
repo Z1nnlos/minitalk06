@@ -6,22 +6,18 @@
 /*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:31:34 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/08 12:03:50 by noel             ###   ########.fr       */
+/*   Updated: 2023/10/12 10:16:06 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-    int i = 0;
-    while (s[i] != '\0')
-        i++;
-    return i;
-}
+	int i;
 
-// int main()
-// {
-//     const char *a = "Hello";
-//     printf("%zu", ft_strlen(a));
-// }
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return i;
+}

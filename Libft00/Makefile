@@ -39,7 +39,7 @@ OBJ = ${SOURCES:.c=.o}
 
 INCLUDES = libft.h
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I ./
 
 .c.o:
 	cc ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INCLUDES}

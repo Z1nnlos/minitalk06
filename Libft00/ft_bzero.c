@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:17:23 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/11 18:11:51 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/20 15:37:49 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*a;
-	size_t			m;
+	char	*a;
+	size_t	m;
 
 	a = s;
 	m = 0;
 	while (m < n)
 	{
-		*a = 0;
+		*a = '\0';
+		a++;
 		m++;
 	}
 }

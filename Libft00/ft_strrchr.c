@@ -6,28 +6,24 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:03:22 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/12 12:58:50 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/20 13:24:12 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *str, int c)
 {
-	const char	*startadd = s;
-	int			i;
+	char	*last_occ;
 
-	i = 0;
-	startadd = s;
-	while (s[i] != '\0')
-		i++;
-	while (s[i] != *startadd)
+	last_occ = 0;
+	while (*str != 0)
 	{
-		if (s[i] == c)
-		{
-			return ((char *)(s + i));
-		}
-		i--;
+		if (*str == (char)c)
+			last_occ = (char *)str;
+		str++;
 	}
-	return (NULL);
+	if ((char) c == 0)
+		return ((char *)str);
+	return (last_occ);
 }

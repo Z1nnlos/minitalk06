@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 10:58:10 by noel              #+#    #+#             */
-/*   Updated: 2023/10/11 18:09:27 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/20 11:20:32 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	ft_atoi(const char *nptr)
 	result = 0;
 	i = 0;
 	vorzeichen = 1;
-	while (nptr[i] == 32 || nptr[i] == 10 || nptr[i] == 9)
+	while (nptr[i] == '\t' || nptr[i] == '\v' || nptr[i] == '\n'
+		|| nptr[i] == '\r' || nptr[i] == '\f' || nptr[i] == 32)
 		i++;
 	if (nptr[i] == '+')
 		i++;

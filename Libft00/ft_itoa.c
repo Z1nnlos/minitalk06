@@ -6,18 +6,32 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 18:36:17 by noel              #+#    #+#             */
-/*   Updated: 2023/10/12 18:36:59 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/21 17:40:51 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
+#include <limits.h>
 
-void	edgecase(int n)
+char	*itoa_part1(int n)
 {
-	char	result[12];
+	char	*result;
 
-	if (n == -2147483648)
+	result = (char *)malloc(12);
+	if (!result)
+		return (NULL);
+	if (n == 0)
+	{
+		result[0] = '0';
+		result[1] = '\0';
+		return (result);
+	}
+	return (result);
+}
+
+char	*itoa_part2(int n, char *result)
+{
+	if (n == INT_MIN)
 	{
 		result[0] = '-';
 		result[1] = '2';
@@ -31,49 +45,57 @@ void	edgecase(int n)
 		result[9] = '4';
 		result[10] = '8';
 		result[11] = '\0';
+		return (result);
 	}
+	return (result);
 }
 
-void	fillarray(int n, int result_index, char *result, char temp[12])
+char	*itoa_part3_helper(int n, char *result)
 {
-	int	i;
+	int 	i;
+	int		m ;
+	char	temp[12];
 
 	i = 0;
+	m = 0;
+	if (n == INT_MIN)
+		return (result);
 	if (n < 0)
 	{
-		result[i] = '-';
-		result_index++;
+		result[m++] = '-';
 		n *= -1;
 	}
-	if (n == 0)
-		temp[i++] = '0';
-	else
+	while (n > 0)
 	{
-		while (n > 0)
-		{
-			temp[i--] = '0' + (n % 10);
-			n /= 10;
-		}
+		temp[i++] = n % 10 + '0';
+		n /= 10;
 	}
 	i--;
 	while (i >= 0)
-		result[result_index++] = temp[i--];
-	result[result_index] = '\0';
+		result[m++] = temp[i--];
+	result[m] = '\0';
+	return (result);
+}
+
+char	*itoa_part3(int n, char *result)
+{
+	if (n == 0)
+	{
+		result[0] = '0';
+		result[1] = '\0';
+		return (result);
+	}
+	return (itoa_part3_helper(n, result));
 }
 
 char	*ft_itoa(int n)
 {
 	char	*result;
-	int		result_index;
-	int		i;
-	char	temp[12];
 
-	i = 0;
-	result_index = 0;
-	edgecase(n);
-	result = (char *)malloc(12);
+	result = itoa_part1(n);
 	if (!result)
 		return (NULL);
-	fillarray(n, result_index, result, temp);
+	result = itoa_part2(n, result);
+	result = itoa_part3(n, result);
 	return (result);
 }

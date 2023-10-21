@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 16:30:04 by noel              #+#    #+#             */
-/*   Updated: 2023/10/20 20:12:33 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/20 20:16:26 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,4 @@ char	*ft_strdup(const char *s)
 		return (0);
 	ft_strlcpy(dup, s, len + 1);
 	return (dup);
-}
-int main()
-{
-	const char *s  = "hello";
-	printf("%s", s);
 }

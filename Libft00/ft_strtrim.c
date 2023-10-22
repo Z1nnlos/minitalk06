@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:15:30 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/21 19:10:02 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/22 11:10:43 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,19 +96,27 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		set_c_st;
 	int		s1_size;
-	int		sizeofal;
+	int		result_size;
 	char	*result;
 
 	set_c_st = 0;
 	s1_size = ft_strlen(s1);
-	sizeofal = s1_size - set_c_st + 1;
-	if (!s1 || !set)
-		return (NULL);
 	set_c_st = start_c_counter(s1, set, 0, set_c_st);
 	s1_size = end_c_counter(s1, set, s1_size);
-	result = (char *)malloc(sizeofal);
-	if (!result)
-		return (NULL);
-	finished_str(s1, result, set_c_st, s1_size);
+	if (set_c_st >= s1_size)
+	{
+		result = (char *)malloc(1);
+		result[0] = '\0';
+	}
+	else
+	{
+		if (!s1 || !set)
+			return (NULL);
+		result_size = s1_size - set_c_st + 1;
+		result = (char *)malloc(result_size);
+		if (!result)
+			return (NULL);
+		finished_str(s1, result, set_c_st, s1_size);
+	}
 	return (result);
 }

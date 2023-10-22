@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:24:32 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/20 16:53:45 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/22 12:19:20 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		if (a[i] == b[i])
 			i++;
 		else if (a[i] < b[i])
-			return (-1);
+			return (a[i] - b[i]);
 		else if (a[i] > b[i])
-			return (1);
+			return (a[i] - b[i]);
 	}
 	return (0);
 }

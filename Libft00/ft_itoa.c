@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 18:36:17 by noel              #+#    #+#             */
-/*   Updated: 2023/10/21 17:40:51 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/22 13:00:01 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*itoa_part2(int n, char *result)
 
 char	*itoa_part3_helper(int n, char *result)
 {
-	int 	i;
+	int		i;
 	int		m ;
 	char	temp[12];
 
@@ -73,7 +73,8 @@ char	*itoa_part3_helper(int n, char *result)
 	i--;
 	while (i >= 0)
 		result[m++] = temp[i--];
-	result[m] = '\0';
+	while (m < 12)
+		result[m++] = '\0';
 	return (result);
 }
 

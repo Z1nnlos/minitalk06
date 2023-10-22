@@ -6,51 +6,44 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 18:36:17 by noel              #+#    #+#             */
-/*   Updated: 2023/10/22 13:00:01 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/22 15:11:30 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <limits.h>
+#include "libft.h"
+#include <stdio.h>
 
-char	*itoa_part1(int n)
+char	*itoa_part1(int n, char *result)
 {
-	char	*result;
+	int		i;
+	int		minus;
 
-	result = (char *)malloc(12);
+	i = 1;
+	minus = 0;
+	if (n < 0)
+	{
+		n *= -1;
+		minus++;
+	}
+	while (n > 9)
+	{
+		i++;
+		n /= 10;
+	}
+	result = (char *)malloc(i + 1 + minus);
 	if (!result)
 		return (NULL);
 	if (n == 0)
 	{
 		result[0] = '0';
 		result[1] = '\0';
-		return (result);
 	}
 	return (result);
 }
 
-char	*itoa_part2(int n, char *result)
-{
-	if (n == INT_MIN)
-	{
-		result[0] = '-';
-		result[1] = '2';
-		result[2] = '1';
-		result[3] = '4';
-		result[4] = '7';
-		result[5] = '4';
-		result[6] = '8';
-		result[7] = '3';
-		result[8] = '6';
-		result[9] = '4';
-		result[10] = '8';
-		result[11] = '\0';
-		return (result);
-	}
-	return (result);
-}
-
-char	*itoa_part3_helper(int n, char *result)
+char	*itoa_part3(int n, char *result)
 {
 	int		i;
 	int		m ;
@@ -73,30 +66,34 @@ char	*itoa_part3_helper(int n, char *result)
 	i--;
 	while (i >= 0)
 		result[m++] = temp[i--];
-	while (m < 12)
-		result[m++] = '\0';
+	result[m++] = '\0';
 	return (result);
-}
-
-char	*itoa_part3(int n, char *result)
-{
-	if (n == 0)
-	{
-		result[0] = '0';
-		result[1] = '\0';
-		return (result);
-	}
-	return (itoa_part3_helper(n, result));
 }
 
 char	*ft_itoa(int n)
 {
 	char	*result;
 
-	result = itoa_part1(n);
+	result = 0;
+	if (n == INT_MIN)
+	{
+		result = (char *)malloc(12);
+		if (!result)
+			return (NULL);
+		ft_strlcpy(result, "-2147483648", 12);
+		return (result);
+	}
+	if (n == 0)
+	{
+		result = (char *)malloc(2);
+		if (!result)
+			return (NULL);
+		ft_strlcpy(result, "0", 2);
+		return (result);
+	}
+	result = itoa_part1(n, result);
 	if (!result)
 		return (NULL);
-	result = itoa_part2(n, result);
 	result = itoa_part3(n, result);
 	return (result);
 }

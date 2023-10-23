@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:35:21 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/23 12:46:09 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/23 17:09:49 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,13 @@ static int	wordcounting(const char *s, char c)
 
 int	malloc_check(char **result, int i)
 {
-	int	n;
-
-	n = 0;
-	if (result[i] != 0)
+	i--;
+	while (i >= 0)
 	{
-		while (i >= 0)
-		{
-			free (result[i--]);
-		}
-		free (result);
-		return (n + 1);
+		free (result[i--]);
 	}
-	return (n);
+	free (result);
+	return (1);
 }
 
 char	**ft_split(const char *s, char c)
@@ -71,9 +65,9 @@ char	**ft_split(const char *s, char c)
 		while (s[word_length] && s[word_length] != c)
 			word_length++;
 		result[i] = ft_substr(s, 0, word_length);
+		if (!result[i] && malloc_check(result, i))
+			return (0);
 		i++;
-		if (malloc_check(result, i) == 1)
-			return (NULL);
 		s += word_length;
 	}
 	return (result);

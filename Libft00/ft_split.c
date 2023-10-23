@@ -6,43 +6,49 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:35:21 by nsabia            #+#    #+#             */
-/*   Updated: 2023/10/22 18:57:44 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/10/23 12:46:09 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	wordcounting(const char *s, char c)
+static int	wordcounting(const char *s, char c)
 {
-	int	i;
-	int	o;
+	int		counter;
+	int		words;
 
-	i = 0;
-	o = 0;
+	counter = 0;
+	words = 0;
 	while (*s != 0)
 	{
-		if (*s != c)
-			i++;
+		if ((!(*s == c)) && (words == 0))
+		{
+			words = 1;
+			counter++;
+		}
 		else if (*s == c)
-			o++;
+			words = 0;
 		s++;
 	}
-	return (o);
+	return (counter);
 }
 
 int	malloc_check(char **result, int i)
 {
-	if (!result[i])
+	int	n;
+
+	n = 0;
+	if (result[i] != 0)
 	{
-		while (i--)
+		while (i >= 0)
 		{
-			free (result[i]);
+			free (result[i--]);
 		}
 		free (result);
-		return (1);
+		return (n + 1);
 	}
-	return (0);
+	return (n);
 }
 
 char	**ft_split(const char *s, char c)
@@ -57,11 +63,11 @@ char	**ft_split(const char *s, char c)
 	if (!result)
 		return (NULL);
 	i = 0;
-	word_length = 0;
-	while (i < word_counter)
+	while (*s && i < word_counter)
 	{
-		if (*s != 0 && *s == c)
+		while (*s == c)
 			s++;
+		word_length = 0;
 		while (s[word_length] && s[word_length] != c)
 			word_length++;
 		result[i] = ft_substr(s, 0, word_length);
@@ -72,4 +78,3 @@ char	**ft_split(const char *s, char c)
 	}
 	return (result);
 }
-//static nicht vergessen
